@@ -14,8 +14,6 @@ An interactive component diagram lives in [`architecture.html`](architecture.htm
 
 | Piece | Detail |
 |---|---|
-| Nix flake | `nix develop` provides JDK 21 + Android SDK (platforms 36/37, build-tools 36.0.0, emulator, API 36 system image). `nix run` (or `run-app` inside the shell) boots/creates the `iamu` AVD, installs the debug build and launches it. |
-| NixOS quirk | AGP normally downloads a prebuilt `aapt2` from Maven that cannot run on NixOS; the shell exports `GRADLE_OPTS` with `android.aapt2FromMavenOverride` pointing at the SDK's own binary. |
 | Gradle | Wrapper 9.4.1, AGP 9.2.1 (built-in Kotlin support — no `kotlin-android` plugin). Version catalog in `gradle/libs.versions.toml`. |
 | Signing | `app/protected.keystore` (alias `iamu`, password `iamu-release`) is committed deliberately — university project, not a real secret. `assembleRelease` produces a signed, R8-minified APK; keep rules live in the root `proguard-rules.pro`. |
 

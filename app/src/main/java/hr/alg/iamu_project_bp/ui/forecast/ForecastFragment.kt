@@ -41,11 +41,12 @@ class ForecastFragment : Fragment(R.layout.fragment_forecast) {
         viewLifecycleOwner.lifecycleScope.launch {
             val bundle = try {
                 resolveHomeBundle()
-            } catch (e: IllegalArgumentException) {
+            } catch (_: IllegalArgumentException) {
                 null
-            } catch (e: IllegalStateException) {
+            } catch (_: IllegalStateException) {
                 null
             }
+
             if (view == null) return@launch
             render(bundle)
         }
