@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Vremenski prikazivač</string>
+
+    <string name="nav_home">Trenutno vrijeme</string>
+    <string name="nav_forecast">Prognoza za 7 dana</string>
+    <string name="nav_cities">Moji gradovi</string>
+    <string name="nav_about">O aplikaciji</string>
+
+    <string name="title_home">Trenutno vrijeme</string>
+    <string name="title_forecast">Prognoza za 7 dana</string>
+    <string name="title_cities">Moji gradovi</string>
+    <string name="title_about">O aplikaciji</string>
+    <string name="title_settings">Postavke</string>
+
+    <string name="menu_refresh">Osvježi</string>
+    <string name="menu_settings">Postavke</string>
+    <string name="menu_about">O aplikaciji</string>
+
+    <string name="action_save">Spremi</string>
+    <string name="action_cancel">Otkaži</string>
+    <string name="action_delete">Obriši</string>
+    <string name="action_add">Dodaj</string>
+    <string name="action_edit">Uredi</string>
+    <string name="action_retry">Pokušaj ponovno</string>
+    <string name="action_ok">U redu</string>
+
+    <string name="dialog_add_city_title">Dodaj grad</string>
+    <string name="dialog_edit_city_title">Uredi grad</string>
+    <string name="dialog_delete_city_title">Obriši grad</string>
+    <string name="dialog_delete_city_message">Jeste li sigurni da želite obrisati %1$s?</string>
+    <string name="hint_city_name">Naziv grada</string>
+    <string name="hint_latitude">Geografska širina</string>
+    <string name="hint_longitude">Geografska dužina</string>
+    <string name="label_favorite">Omiljeni</string>
+    <string name="message_city_saved">Grad je spremljen</string>
+    <string name="message_city_deleted">Grad je obrisan</string>
+    <string name="message_no_cities">Nema spremljenih gradova. Dodajte jedan pritiskom na dugme +.</string>
+
+    <string name="label_temperature">Temperatura</string>
+    <string name="label_wind">Vjetar</string>
+    <string name="label_humidity">Vlažnost</string>
+    <string name="label_precipitation">Oborina</string>
+    <string name="label_min">Min</string>
+    <string name="label_max">Maks</string>
+    <string name="label_updated_at">Ažurirano %1$s</string>
+
+    <string name="weather_clear">Čisto nebo</string>
+    <string name="weather_mainly_clear">Uglavnom čisto</string>
+    <string name="weather_partly_cloudy">Djelomično oblačno</string>
+    <string name="weather_overcast">Oblačno</string>
+    <string name="weather_fog">Magla</string>
+    <string name="weather_drizzle">Sitna kiša</string>
+    <string name="weather_freezing_drizzle">Smrzavajuća sitna kiša</string>
+    <string name="weather_rain">Kiša</string>
+    <string name="weather_freezing_rain">Smrzavajuća kiša</string>
+    <string name="weather_rain_showers">Pljuskovi kiše</string>
+    <string name="weather_snow">Snijeg</string>
+    <string name="weather_snow_grains">Zrna snijega</string>
+    <string name="weather_snow_showers">Snježni pljuskovi</string>
+    <string name="weather_thunderstorm">Grmljavina</string>
+    <string name="weather_thunderstorm_hail">Grmljavina sa gradom</string>
+    <string name="weather_unknown">Nepoznati uvjeti</string>
+
+    <string name="pref_category_general">Općenito</string>
+    <string name="pref_category_sync">Sinkronizacija u pozadini</string>
+    <string name="pref_title_units">Mjerne jedinice</string>
+    <string name="pref_summary_units">Mjerne jedinice za temperaturu i brzinu vjetra</string>
+    <string name="pref_title_sync_interval">Interval sinkronizacije</string>
+    <string name="pref_summary_sync_interval">Kako često se vremenski podaci osvježavaju u pozadini</string>
+    <string name="pref_title_notifications">Vremenskih obavijesti</string>
+    <string name="pref_summary_notifications">Prikaži obavijest kada stignu novi vremenski podaci</string>
+
+    <string name="pref_units_metric">Metrički (°C, km/h)</string>
+    <string name="pref_units_imperial">Imperijalni (°F, mph)</string>
+    <string-array name="pref_units_entries">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+    <string name="pref_sync_15_min">Svakih 15 minuta</string>
+    <string name="pref_sync_1_hour">Svaki sat</string>
+    <string name="pref_sync_6_hours">Svakih 6 sati</string>
+    <string name="pref_sync_daily">Jednom dnevno</string>
+    <string-array name="pref_sync_interval_entries">
+        <item>@string/pref_sync_15_min</item>
+        <item>@string/pref_sync_1_hour</item>
+        <item>@string/pref_sync_6_hours</item>
+        <item>@string/pref_sync_daily</item>
+    </string-array>
+
+    <string name="notification_channel_name_alerts">Vremenskih upozorenja</string>
+    <string name="notification_channel_description_alerts">Obavijesti o značajnim promjenama vremenske situacije</string>
+    <string name="notification_channel_name_sync">Sinkronizacija u pozadini</string>
+    <string name="notification_channel_description_sync">Status osvježavanja vremenskih podataka u pozadini</string>
+    <string name="notification_alert_title">Vremensko upozorenje za %1$s</string>
+    <string name="notification_alert_text">%1$s, %2$s</string>
+    <string name="notification_sync_title">Vrijeme je ažurirano</string>
+    <string name="notification_sync_text">Najnoviji vremenski podaci su preuzeti</string>
+    <string name="notification_permission_rationale">Omogući obavijesti da biste primili vremenskih upozorenja</string>
+
+    <string name="error_network">Greška u mreži. Provjerite vašu konekciju i pokušajte ponovno.</string>
+    <string name="error_no_data">Nema dostupnih vremenskih podataka</string>
+    <string name="error_city_not_found">Grad nije pronađen</string>
+    <string name="error_invalid_input">Molimo unesite ispravnu vrijednost</string>
+    <string name="error_unknown">Nešto je pošlo po zlu</string>
+    <string name="message_offline">Ste offline. Prikazujem podatke iz memorije.</string>
+    <string name="message_refreshing">Osvježavam…</string>
+    <string name="message_refresh_success">Vrijeme je ažurirano</string>
+    <string name="message_refresh_failed">Osvježavanje nije uspjelo</string>
+
+    <string name="cd_weather_icon">Ikona vremenskog stanja</string>
+    <string name="cd_drawer_open">Otvori navigacijski pregled</string>
+    <string name="cd_drawer_close">Zatvori navigacijski pregled</string>
+    <string name="cd_add_city">Dodaj novi grad</string>
+    <string name="cd_favorite_toggle">Promijeni status omiljenog grada</string>
+    <string name="cd_app_logo">Logo aplikacije</string>
+
+    <string name="about_text">Vremenski prikazivač je sveučilišni projekt koji demonstrira Android razvoj sa Kotlin jezikom: čista arhitektura, SQLite, ContentProvider, WorkManager, Retrofit i Material Design.</string>
+    <string name="about_version">Verzija %1$s</string>
+    <string name="about_author">Kreirano za IAMU kolegij</string>
+    <string name="about_data_source">Vremenski podaci od Open-Meteo.com</string>
+
+</resources>

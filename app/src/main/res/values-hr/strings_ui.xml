@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="action_share">Dijeli</string>
+    <string name="action_open_in_maps">Otvori u mapama</string>
+
+    <string name="share_chooser_title">Dijeli vrijeme</string>
+    <string name="share_weather_subject">Vrijeme u %1$s</string>
+    <string name="share_weather_body">%1$s: %2$s, %3$s</string>
+
+    <string name="maps_not_available">Aplikacija za mape nije pronađena</string>
+    <string name="browser_not_available">Preglednik nije pronađen</string>
+
+    <string name="permission_rationale_title">Omogući obavijesti</string>
+    <string name="action_allow">Dozvoli</string>
+    <string name="action_not_now">Ne sada</string>
+
+    <string name="home_city_set">%1$s postavljen kao početni grad</string>
+    <string name="cities_edit_or_delete">Uredi ili obriši %1$s?</string>
+
+    <string name="cd_share">Dijeli vrijeme</string>
+    <string name="cd_open_in_maps">Otvori lokaciju u mapama</string>
+    <string name="home_page_of">Grad %1$d od %2$d</string>
+
+    <string name="about_features_title">Implementirane mogućnosti</string>
+    <string name="about_features">Skalabilna RecyclerView s prilagođenim Adapterom/ViewHolderom, CardView i ViewPager2 rasporede, prilagođene Material komponente, proširiv mehanizam animacije s animiranom prskavom, čuvanje stanja životnog ciklusa, implicitni i eksplicitni Intenti s dodatcima, meni opcija s dijalozima i postavkama, statični i dinamički Fragmenti s navigacijskom bočnom trakom i povratnom trakom, i tok dozvola tijekom izvršavanja.</string>
+    <string name="about_open_source">Otvori Open-Meteo</string>
+
+    <string name="home_no_cities">Nema spremljenih gradova.</string>
+
+    <string name="action_search">Traži</string>
+    <string name="action_manual_entry">Unesi ručno</string>
+    <string name="search_no_results">Nije pronađen nijedan grad za „%1$s“</string>
+
+</resources>

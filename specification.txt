@@ -1,0 +1,50 @@
+Kotlin Weather App
+for Android
+for API 30.0 "R",
+
+Resources & Architecture
+Multi-language support (strings.xml translation)
+Unified resource management (drawables, colors, dimens, styles) without redundancy
+Project directory structure matches clean architecture principles
+Clean and fully configured AndroidManifest.xml
+Custom styles and themes using Material Design rules
+
+UI Components
+Scalable RecyclerView with custom AdapterViewHolder pattern implementation
+CardView layout elements
+ViewPager layout elements
+Custom UI components following Material Design specifications
+Extensible animation mechanism with custom animations
+Animated splash screen using the animation mechanism
+
+Core Architecture & Navigation
+Proper Activity lifecycle state preservation (e.g., screen rotation)
+Implicit and explicit Intent objects with extra parameters
+Options menu, dialogs, and settings screen
+Static and dynamic Fragment management with correct backstack handling
+Fragment-based navigation using Material Design components
+Implementation of a NavigationDrawer
+
+Data Storage & Persistence
+Database schema design and model implementation
+CRUD operations via SQLite using SQLiteOpenHelper
+Static and dynamic usage of SharedPreferences
+Extension functions optimizing SharedPreferences access
+Abstraction layer over CRUD operations (Repository pattern)
+ContentProvider implementing data abstraction and component separation
+Client data access implemented via ContentResolver
+
+Background Processing & Networking
+Custom BroadcastReceiver for app notifications
+Worker (WorkManager) for background task execution
+Async networking layer for remote data download (JSON or XML)
+Parser converting downloaded data into domain entities
+Inter-process communication and delayed execution using Handler and Looper
+
+Security, Services & Permissions
+Network checks via ConnectivityManagerApp notifications via NotificationManager
+Task scheduling via AlarmManager
+ProGuard/R8 obfuscation configuration rules (proguard-rules.pro)
+Signed APK app signing key setup
+PendingIntent for alarms, activities, and notifications
+Manifest-only static app permissionsRuntime permissions handling with user prompt flow

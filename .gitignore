@@ -1,0 +1,51 @@
+# Built artifacts
+*.class
+*.log
+*.aar
+*.apk
+*.ap_
+**/build/
+
+# Gradle files
+.gradle/
+/local.properties
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/assetWizardSettings.xml
+/.idea/modules.xml
+/.idea/navEditor.xml
+/.idea/caches/
+/.idea/libraries/
+.navigation/
+
+# Kotlin / Java data
+.kotlin/
+hs_err_pid*
+replay_pid*
+
+# Package Files
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Device / Emulator files
+*.keystore
+!protected.keystore
+*.jks
+*.pepk
+CapturedProperties.json
+
+# NDK
+.externalNativeBuild/
+.cxx/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+local.properties

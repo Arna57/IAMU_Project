@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_category_general">
+
+        <ListPreference
+            app:defaultValue="@string/pref_units_value_metric"
+            app:entries="@array/pref_units_entries"
+            app:entryValues="@array/pref_units_values"
+            app:key="@string/pref_key_units"
+            app:summary="@string/pref_summary_units"
+            app:title="@string/pref_title_units"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_sync">
+
+        <ListPreference
+            app:defaultValue="60"
+            app:entries="@array/pref_sync_interval_entries"
+            app:entryValues="@array/pref_sync_interval_values"
+            app:key="@string/pref_key_sync_interval"
+            app:summary="@string/pref_summary_sync_interval"
+            app:title="@string/pref_title_sync_interval"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="@string/pref_key_notifications_enabled"
+            app:summary="@string/pref_summary_notifications"
+            app:title="@string/pref_title_notifications" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

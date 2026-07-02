@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing_medium"
+    android:layout_marginVertical="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium">
+
+        <ImageView
+            android:id="@+id/imgForecastIcon"
+            android:layout_width="@dimen/icon_size_medium"
+            android:layout_height="@dimen/icon_size_medium"
+            android:contentDescription="@string/cd_weather_icon"
+            android:src="@drawable/ic_weather_cloud"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtForecastDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintBottom_toTopOf="@id/txtForecastCondition"
+            app:layout_constraintEnd_toStartOf="@id/txtForecastTempRange"
+            app:layout_constraintStart_toEndOf="@id/imgForecastIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Mon, 12 Jul" />
+
+        <TextView
+            android:id="@+id/txtForecastCondition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:hyphenationFrequency="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/statsRow"
+            app:layout_constraintStart_toEndOf="@id/imgForecastIcon"
+            app:layout_constraintTop_toBottomOf="@id/txtForecastDate"
+            tools:text="Partly cloudy" />
+
+        <TextView
+            android:id="@+id/txtForecastTempRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12° / 24°" />
+
+        <LinearLayout
+            android:id="@+id/statsRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtForecastTempRange">
+
+            <TextView
+                android:id="@+id/txtForecastPrecipitation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?android:attr/textColorSecondary"
+                app:drawableStartCompat="@drawable/ic_weather_rain"
+                tools:text="1.2 mm" />
+
+            <TextView
+                android:id="@+id/txtForecastWind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="8.0 km/h" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

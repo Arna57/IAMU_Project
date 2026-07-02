@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="action_share">Teilen</string>
+    <string name="action_open_in_maps">In Karten öffnen</string>
+
+    <string name="share_chooser_title">Wetter teilen</string>
+    <string name="share_weather_subject">Wetter in %1$s</string>
+    <string name="share_weather_body">%1$s: %2$s, %3$s</string>
+
+    <string name="maps_not_available">Keine Karten-App gefunden</string>
+    <string name="browser_not_available">Kein Browser gefunden</string>
+
+    <string name="permission_rationale_title">Benachrichtigungen aktivieren</string>
+    <string name="action_allow">Zulassen</string>
+    <string name="action_not_now">Nicht jetzt</string>
+
+    <string name="home_city_set">%1$s als Heimatstadt festgelegt</string>
+    <string name="cities_edit_or_delete">%1$s bearbeiten oder löschen?</string>
+
+    <string name="cd_share">Wetter teilen</string>
+    <string name="cd_open_in_maps">Ort in Karten öffnen</string>
+    <string name="home_page_of">Stadt %1$d von %2$d</string>
+
+    <string name="about_features_title">Implementierte Funktionen</string>
+    <string name="about_features">Skalbare RecyclerView mit benutzerdefiniertem Adapter/ViewHolder, CardView und ViewPager2-Layouts, benutzerdefinierte Material-Komponenten, erweiterbarer Animationsmechanismus mit animiertem Splash-Screen, Erhaltung des Lifecycle-Status, implizite und explizite Intents mit Extras, Optionsmenü mit Dialogen und Einstellungsbildschirm, statische und dynamische Fragments mit Navigationsschublade und Backstack, und Laufzeit-Berechtigungsfluss.</string>
+    <string name="about_open_source">Open-Meteo öffnen</string>
+
+    <string name="home_no_cities">Keine Städte gespeichert.</string>
+
+    <string name="action_search">Suchen</string>
+    <string name="action_manual_entry">Manuell eingeben</string>
+    <string name="search_no_results">Keine Städte für „%1$s“ gefunden</string>
+
+</resources>

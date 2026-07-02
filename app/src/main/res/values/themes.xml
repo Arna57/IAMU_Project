@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.IAMU_Project_BP" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sky_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/sun_accent</item>
+    </style>
+
+    <style name="Theme.IAMU_Project_BP" parent="Base.Theme.IAMU_Project_BP" />
+
+    <style name="Theme.IAMU.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_weather_sun_splash</item>
+        <item name="windowSplashScreenAnimationDuration">800</item>
+        <item name="postSplashScreenTheme">@style/Theme.IAMU_Project_BP</item>
+    </style>
+</resources>

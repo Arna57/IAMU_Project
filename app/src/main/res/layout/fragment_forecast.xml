@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.forecast.ForecastFragment">
+
+    <TextView
+        android:id="@+id/txtForecastCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/spacing_medium"
+        android:paddingTop="@dimen/spacing_medium"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+        tools:text="Zagreb" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/forecastList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/spacing_medium"
+        tools:listitem="@layout/item_forecast" />
+
+    <TextView
+        android:id="@+id/txtForecastEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/spacing_large"
+        android:gravity="center"
+        android:text="@string/error_no_data"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</FrameLayout>

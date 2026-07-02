@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IAMU Weather App — Architecture</title>
+<style>
+  :root {
+    --ui:        #7c4dff;
+    --comp:      #00897b;
+    --domain:    #f9a825;
+    --data:      #1e88e5;
+    --network:   #43a047;
+    --bg:        #e53935;
+    --ext:       #546e7a;
+    --ink:       #1a1a2e;
+    --paper:     #f6f7fb;
+    --card:      #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1rem 4rem;
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink); background: var(--paper);
+  }
+  main { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.7rem; margin: 0 0 .2rem; }
+  .sub { color: #555; margin: 0 0 1.6rem; }
+  h1 + .sub code { background: #e8eaf3; padding: .1em .4em; border-radius: 4px; }
+
+  .layer {
+    border-radius: 14px; padding: 1rem 1.1rem 1.1rem; margin: 0 0 .4rem;
+    background: var(--card);
+    border: 1px solid #e3e5ee;
+    border-left: 6px solid var(--accent, #999);
+    box-shadow: 0 1px 3px rgba(20,20,60,.06);
+  }
+  .layer > header { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; margin-bottom: .7rem; }
+  .layer > header h2 { font-size: 1.05rem; margin: 0; color: var(--accent); }
+  .layer > header p  { margin: 0; color: #666; font-size: .85rem; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: .6rem; }
+  .card {
+    background: color-mix(in srgb, var(--accent) 5%, white);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, white);
+    border-radius: 9px; padding: .6rem .7rem;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(20,20,60,.12); }
+  .card b { display: block; font-size: .88rem; margin-bottom: .15rem; }
+  .card b code { font-size: .82rem; }
+  .card p { margin: 0; font-size: .8rem; color: #4a4a5a; }
+  .tag {
+    display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, white);
+    border-radius: 99px; padding: .05rem .45rem; margin-left: .3rem; vertical-align: middle;
+  }
+
+  .arrow {
+    text-align: center; color: #8a8fa6; font-size: .78rem;
+    padding: .15rem 0 .45rem; user-select: none;
+  }
+  .arrow::before { content: "▼  "; font-size: .7rem; }
+  .arrow::after  { content: "  ▼"; font-size: .7rem; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+  @media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+
+  .flow {
+    margin-top: 2rem; border-radius: 14px; background: var(--card);
+    border: 1px solid #e3e5ee; padding: 1rem 1.1rem;
+  }
+  .flow h2 { font-size: 1.05rem; margin: 0 0 .6rem; }
+  .flow ol { margin: 0; padding-left: 1.3rem; font-size: .87rem; }
+  .flow li { margin: .25rem 0; }
+  .flow code, .layer code { background: #eef0f7; border-radius: 4px; padding: .05em .3em; font-size: .85em; }
+
+  footer { margin-top: 2rem; color: #777; font-size: .8rem; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>IAMU Weather App — component map</h1>
+  <p class="sub">Package root <code>hr.alg.iamu_project_bp</code> · minSdk 30, target SDK 36 · Open-Meteo (no API key) ·
+     details in <code>docs/ARCHITECTURE.md</code></p>
+
+  <section class="layer" style="--accent: var(--ui)">
+    <header><h2>UI layer</h2><p>fragments hosted in the MainActivity drawer shell · renders cached data only</p></header>
+    <div class="cards">
+      <div class="card"><b><code>ui.splash.SplashActivity</code><span class="tag">launcher</span></b>
+        <p>core-splashscreen with a custom exit animation, then an explicit intent (with extra) into MainActivity.</p></div>
+      <div class="card"><b><code>MainActivity</code></b>
+        <p>MaterialToolbar + NavigationDrawer + fragment container. Home is the backstack root; other screens push with custom slide/fade transitions. Owns the refresh action, the connectivity check and the POST_NOTIFICATIONS runtime-permission flow.</p></div>
+      <div class="card"><b><code>ui.home</code><span class="tag">ViewPager2</span></b>
+        <p><code>HomeFragment</code> pages one dynamically-created <code>CityWeatherPageFragment</code> per saved city; selected page survives rotation. Empty state links to Cities. Share / open-in-maps implicit intents.</p></div>
+      <div class="card"><b><code>ui.forecast</code><span class="tag">RecyclerView</span></b>
+        <p><code>ForecastAdapter</code> (ListAdapter + DiffUtil, custom ViewHolder) renders 7-day CardView rows for the home city.</p></div>
+      <div class="card"><b><code>ui.cities</code><span class="tag">ContentResolver</span></b>
+        <p>Reads and mutates cities exclusively through the ContentProvider, with a ContentObserver for live updates. Add = geocoding search dialog (manual lat/lon fallback); long-press = edit/delete dialogs; star = home city.</p></div>
+      <div class="card"><b><code>ui.settings</code></b>
+        <p><code>PreferenceFragmentCompat</code> over the shared <code>pref_key_*</code> resources: units, sync interval, notifications toggle.</p></div>
+      <div class="card"><b><code>ui.about</code></b>
+        <p>Version info and an implicit browser intent to the data source.</p></div>
+      <div class="card"><b><code>ui.UnitsFormatter</code> · <code>ui.anim</code></b>
+        <p>Display-time °C/km/h → °F/mph conversion (storage stays metric) and the reusable animation helpers (<code>fadeInUp</code>, <code>staggerIn</code>, …).</p></div>
+    </div>
+  </section>
+  <div class="arrow">resolves repositories via</div>
+
+  <section class="layer" style="--accent: var(--comp)">
+    <header><h2>Composition</h2><p>manual wiring — no DI framework</p></header>
+    <div class="cards">
+      <div class="card"><b><code>WeatherApp</code><span class="tag">Application</span></b>
+        <p>Assigns the three AppGraph providers to the concrete factories and schedules the periodic sync on startup.</p></div>
+      <div class="card"><b><code>AppGraph</code><span class="tag">composition root</span></b>
+        <p>Holds provider fields for CityRepository, WeatherRepository and WeatherDataSource. UI and background code obtain instances only through its accessors.</p></div>
+    </div>
+  </section>
+  <div class="arrow">implements the contracts of</div>
+
+  <section class="layer" style="--accent: var(--domain)">
+    <header><h2>Domain layer</h2><p>plain Kotlin — models and interfaces, no Android dependencies beyond resource ids</p></header>
+    <div class="cards">
+      <div class="card"><b><code>domain.model</code></b>
+        <p><code>City</code>, <code>CurrentWeather</code>, <code>DailyForecast</code>, <code>WeatherBundle</code> (what the UI renders), <code>WeatherSnapshot</code> (raw fetch result). All values metric + raw WMO codes.</p></div>
+      <div class="card"><b><code>CityRepository</code></b>
+        <p>Main-safe suspend CRUD; change listeners fire on the main thread after successful mutations.</p></div>
+      <div class="card"><b><code>WeatherRepository</code></b>
+        <p><code>getCached</code> (never network) / <code>refresh</code> (fetch + persist). Errors: <code>IOException</code> network, <code>IllegalArgumentException</code> unknown city.</p></div>
+      <div class="card"><b><code>WeatherDataSource</code></b>
+        <p><code>fetchWeather(lat, lon)</code> → snapshot; the seam between the data and network layers.</p></div>
+      <div class="card"><b><code>WeatherCodes</code></b>
+        <p>Single WMO-code → string/drawable mapping used by every condition render.</p></div>
+    </div>
+  </section>
+  <div class="arrow">backed by</div>
+
+  <div class="cols">
+    <section class="layer" style="--accent: var(--data)">
+      <header><h2>Data layer</h2><p>SQLite + prefs, one shared DB helper</p></header>
+      <div class="cards" style="grid-template-columns: 1fr;">
+        <div class="card"><b><code>data.db.WeatherDbHelper</code><span class="tag">SQLiteOpenHelper</span></b>
+          <p>Tables <code>cities</code>, <code>current_weather</code> (1:1, upsert), <code>daily_forecast</code> (replaced per refresh); FK cascade on city delete.</p></div>
+        <div class="card"><b><code>data.repository</code></b>
+          <p><code>SqliteCityRepository</code> and <code>SqliteWeatherRepository</code> singletons; refresh persists transactionally; mutations notify both listeners and the provider URI.</p></div>
+        <div class="card"><b><code>data.provider.CityProvider</code><span class="tag">ContentProvider</span></b>
+          <p>Authority <code>hr.alg.iamu_project_bp.provider</code>, dir/item URIs + MIME types over the cities table. Not exported; consumed by the Cities screen via ContentResolver.</p></div>
+        <div class="card"><b><code>data.prefs.Preferences.kt</code></b>
+          <p>Extension-function access to the static default file (units, interval, notifications, home city) and dynamic per-city files.</p></div>
+      </div>
+    </section>
+
+    <section class="layer" style="--accent: var(--network)">
+      <header><h2>Network layer</h2><p>Retrofit + Gson, suspend calls on IO</p></header>
+      <div class="cards" style="grid-template-columns: 1fr;">
+        <div class="card"><b><code>OpenMeteoApi</code> / <code>NetworkModule</code></b>
+          <p>Forecast + geocoding Retrofit services, lazily built singletons.</p></div>
+        <div class="card"><b><code>WeatherResponseParser</code></b>
+          <p>DTOs → <code>WeatherSnapshot</code>; WMO codes pass through untouched.</p></div>
+        <div class="card"><b><code>OpenMeteoWeatherDataSource</code></b>
+          <p>Implements <code>WeatherDataSource</code>; HTTP failures become <code>IOException</code>.</p></div>
+        <div class="card"><b><code>CitySearch</code><span class="tag">geocoding</span></b>
+          <p><code>Match(city, country)</code> results powering the add-city search dialog.</p></div>
+        <div class="card"><b><code>ConnectivityChecker</code></b>
+          <p><code>ConnectivityManager</code>/<code>NetworkCapabilities</code> online check before user-initiated fetches.</p></div>
+      </div>
+    </section>
+  </div>
+  <div class="arrow">kept fresh by</div>
+
+  <section class="layer" style="--accent: var(--bg)">
+    <header><h2>Background processing</h2><p>WorkManager · AlarmManager · broadcasts · notifications</p></header>
+    <div class="cards">
+      <div class="card"><b><code>work.WeatherSyncWorker</code><span class="tag">CoroutineWorker</span></b>
+        <p>Refreshes all cities (or one via input data) through the repositories; retries on IOException; posts a sync notification.</p></div>
+      <div class="card"><b><code>work.SyncScheduler</code></b>
+        <p>Unique periodic work from the interval preference (CONNECTED constraint) + one-shot sync used when a city is added or edited.</p></div>
+      <div class="card"><b><code>alarm.AlarmScheduler</code></b>
+        <p>Exact weather-alert alarms (<code>setExactAndAllowWhileIdle</code>, windowed fallback) with broadcast PendingIntents.</p></div>
+      <div class="card"><b><code>receiver</code></b>
+        <p><code>WeatherAlertReceiver</code> turns alarm broadcasts into alert notifications; <code>BootReceiver</code> re-schedules sync after reboot.</p></div>
+      <div class="card"><b><code>notification.NotificationHelper</code></b>
+        <p>Creates both channels; gates posting on the runtime permission and the user preference; content PendingIntents open MainActivity.</p></div>
+      <div class="card"><b><code>notification.DelayedExecutor</code><span class="tag">Handler/Looper</span></b>
+        <p>HandlerThread + <code>postDelayed</code> utility; auto-dismisses the sync notification.</p></div>
+    </div>
+  </section>
+  <div class="arrow">talks to</div>
+
+  <section class="layer" style="--accent: var(--ext)">
+    <header><h2>External</h2></header>
+    <div class="cards">
+      <div class="card"><b>Open-Meteo forecast API</b><p><code>api.open-meteo.com/v1/forecast</code> — current + 7-day daily, free, keyless.</p></div>
+      <div class="card"><b>Open-Meteo geocoding API</b><p><code>geocoding-api.open-meteo.com/v1/search</code> — name → coordinates for add-city.</p></div>
+      <div class="card"><b>Android system services</b><p>WorkManager, AlarmManager, NotificationManager, ConnectivityManager.</p></div>
+    </div>
+  </section>
+
+  <div class="flow">
+    <h2>Data flow — manual refresh</h2>
+    <ol>
+      <li><code>MainActivity</code> refresh action → <code>ConnectivityChecker</code> (offline → Snackbar, stop)</li>
+      <li><code>AppGraph.weatherRepository().refresh(homeCityId)</code> in <code>lifecycleScope</code></li>
+      <li><code>OpenMeteoWeatherDataSource.fetchWeather(lat, lon)</code> → Retrofit on IO → <code>WeatherResponseParser</code></li>
+      <li><code>SqliteWeatherRepository</code> upserts <code>current_weather</code> + replaces <code>daily_forecast</code> in one transaction</li>
+      <li>Snackbar feedback; fragments re-read the cache on next render (<code>onResume</code> re-renders apply units changes too)</li>
+    </ol>
+    <h2 style="margin-top:1rem">Data flow — adding a city</h2>
+    <ol>
+      <li>Cities FAB → search dialog → <code>CitySearch.searchCities(name)</code> → pick "Name — Country"</li>
+      <li><code>ContentResolver.insert</code> → <code>CityProvider</code> → shared DB → <code>notifyChange</code> (ContentObserver refreshes the list)</li>
+      <li><code>SyncScheduler.triggerOneShotSync(cityId)</code> → <code>WeatherSyncWorker</code> fetches weather immediately</li>
+    </ol>
+  </div>
+
+  <footer>Build: <code>nix develop</code> (JDK 21 + Android SDK) · <code>nix run</code> boots the AVD and installs the app ·
+  signed release via <code>app/protected.keystore</code>, R8 rules in <code>proguard-rules.pro</code></footer>
+</main>
+</body>
+</html>

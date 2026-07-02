@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wetter-App</string>
+
+    <string name="nav_home">Aktuelles Wetter</string>
+    <string name="nav_forecast">7-Tage-Vorhersage</string>
+    <string name="nav_cities">Meine Städte</string>
+    <string name="nav_about">Über</string>
+
+    <string name="title_home">Aktuelles Wetter</string>
+    <string name="title_forecast">7-Tage-Vorhersage</string>
+    <string name="title_cities">Meine Städte</string>
+    <string name="title_about">Über</string>
+    <string name="title_settings">Einstellungen</string>
+
+    <string name="menu_refresh">Aktualisieren</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="menu_about">Über</string>
+
+    <string name="action_save">Speichern</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_add">Hinzufügen</string>
+    <string name="action_edit">Bearbeiten</string>
+    <string name="action_retry">Erneut versuchen</string>
+    <string name="action_ok">OK</string>
+
+    <string name="dialog_add_city_title">Stadt hinzufügen</string>
+    <string name="dialog_edit_city_title">Stadt bearbeiten</string>
+    <string name="dialog_delete_city_title">Stadt löschen</string>
+    <string name="dialog_delete_city_message">Sind Sie sicher, dass Sie %1$s löschen möchten?</string>
+    <string name="hint_city_name">Stadtname</string>
+    <string name="hint_latitude">Breitengrad</string>
+    <string name="hint_longitude">Längengrad</string>
+    <string name="label_favorite">Favorit</string>
+    <string name="message_city_saved">Stadt gespeichert</string>
+    <string name="message_city_deleted">Stadt gelöscht</string>
+    <string name="message_no_cities">Keine Städte gespeichert. Fügen Sie eine mit der Schaltfläche + hinzu.</string>
+
+    <string name="label_temperature">Temperatur</string>
+    <string name="label_wind">Wind</string>
+    <string name="label_humidity">Luftfeuchtigkeit</string>
+    <string name="label_precipitation">Niederschlag</string>
+    <string name="label_min">Min</string>
+    <string name="label_max">Max</string>
+    <string name="label_updated_at">Aktualisiert %1$s</string>
+
+    <string name="weather_clear">Klarer Himmel</string>
+    <string name="weather_mainly_clear">Überwiegend klar</string>
+    <string name="weather_partly_cloudy">Teilweise bewölkt</string>
+    <string name="weather_overcast">Bewölkt</string>
+    <string name="weather_fog">Nebel</string>
+    <string name="weather_drizzle">Nieselregen</string>
+    <string name="weather_freezing_drizzle">Gefrierender Nieselregen</string>
+    <string name="weather_rain">Regen</string>
+    <string name="weather_freezing_rain">Gefrierender Regen</string>
+    <string name="weather_rain_showers">Regenschauer</string>
+    <string name="weather_snow">Schneefall</string>
+    <string name="weather_snow_grains">Schneekörner</string>
+    <string name="weather_snow_showers">Schneeschauer</string>
+    <string name="weather_thunderstorm">Gewitter</string>
+    <string name="weather_thunderstorm_hail">Gewitter mit Hagel</string>
+    <string name="weather_unknown">Unbekannte Bedingungen</string>
+
+    <string name="pref_category_general">Allgemein</string>
+    <string name="pref_category_sync">Hintergrund-Synchronisierung</string>
+    <string name="pref_title_units">Einheiten</string>
+    <string name="pref_summary_units">Einheiten für Temperatur und Windgeschwindigkeit</string>
+    <string name="pref_title_sync_interval">Synchronisierungsintervall</string>
+    <string name="pref_summary_sync_interval">Wie oft Wetterdaten im Hintergrund aktualisiert werden</string>
+    <string name="pref_title_notifications">Wettermitteilungen</string>
+    <string name="pref_summary_notifications">Benachrichtigung anzeigen, wenn neue Wetterdaten verfügbar sind</string>
+
+    <string name="pref_units_metric">Metrisch (°C, km/h)</string>
+    <string name="pref_units_imperial">Angloamerikanisch (°F, mph)</string>
+    <string-array name="pref_units_entries">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+    <string name="pref_sync_15_min">Alle 15 Minuten</string>
+    <string name="pref_sync_1_hour">Jede Stunde</string>
+    <string name="pref_sync_6_hours">Alle 6 Stunden</string>
+    <string name="pref_sync_daily">Einmal täglich</string>
+    <string-array name="pref_sync_interval_entries">
+        <item>@string/pref_sync_15_min</item>
+        <item>@string/pref_sync_1_hour</item>
+        <item>@string/pref_sync_6_hours</item>
+        <item>@string/pref_sync_daily</item>
+    </string-array>
+
+    <string name="notification_channel_name_alerts">Wetterwarnungen</string>
+    <string name="notification_channel_description_alerts">Benachrichtigungen über signifikante Wetterveränderungen</string>
+    <string name="notification_channel_name_sync">Hintergrund-Synchronisierung</string>
+    <string name="notification_channel_description_sync">Status der Hintergrund-Wetterdatenaktualisierung</string>
+    <string name="notification_alert_title">Wetterwarnung für %1$s</string>
+    <string name="notification_alert_text">%1$s, %2$s</string>
+    <string name="notification_sync_title">Wetter aktualisiert</string>
+    <string name="notification_sync_text">Neueste Wetterdaten wurden heruntergeladen</string>
+    <string name="notification_permission_rationale">Benachrichtigungen zulassen, um Wetterwarnungen zu erhalten</string>
+
+    <string name="error_network">Netzwerkfehler. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.</string>
+    <string name="error_no_data">Keine Wetterdaten verfügbar</string>
+    <string name="error_city_not_found">Stadt nicht gefunden</string>
+    <string name="error_invalid_input">Bitte geben Sie einen gültigen Wert ein</string>
+    <string name="error_unknown">Etwas ist schief gelaufen</string>
+    <string name="message_offline">Sie sind offline. Zeige zwischengespeicherte Daten an.</string>
+    <string name="message_refreshing">Aktualisiere…</string>
+    <string name="message_refresh_success">Wetter aktualisiert</string>
+    <string name="message_refresh_failed">Aktualisierung fehlgeschlagen</string>
+
+    <string name="cd_weather_icon">Wettersymbol</string>
+    <string name="cd_drawer_open">Navigationsmenü öffnen</string>
+    <string name="cd_drawer_close">Navigationsmenü schließen</string>
+    <string name="cd_add_city">Eine neue Stadt hinzufügen</string>
+    <string name="cd_favorite_toggle">Favoritenstatus der Stadt umschalten</string>
+    <string name="cd_app_logo">App-Logo</string>
+
+    <string name="about_text">Weather App ist ein Universitätsprojekt, das Android-Entwicklung mit Kotlin demonstriert: saubere Architektur, SQLite, ContentProvider, WorkManager, Retrofit und Material Design.</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_author">Erstellt für den IAMU-Kurs</string>
+    <string name="about_data_source">Wetterdaten von Open-Meteo.com</string>
+
+</resources>

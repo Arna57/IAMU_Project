@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="sky_primary">#FF1976D2</color>
+    <color name="sky_primary_night">#FF90CAF9</color>
+    <color name="sun_accent">#FFFFB300</color>
+    <color name="splash_background">#FF1976D2</color>
+
+    <color name="weather_cold">#FF4FC3F7</color>
+    <color name="weather_warm">#FFFF8A65</color>
+    <color name="weather_neutral">#FF90A4AE</color>
+</resources>

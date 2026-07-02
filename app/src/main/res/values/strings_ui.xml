@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="action_share">Share</string>
+    <string name="action_open_in_maps">Open in maps</string>
+
+    <string name="share_chooser_title">Share weather</string>
+    <string name="share_weather_subject">Weather in %1$s</string>
+    <string name="share_weather_body">%1$s: %2$s, %3$s</string>
+
+    <string name="maps_not_available">No maps application found</string>
+    <string name="browser_not_available">No browser found</string>
+
+    <string name="permission_rationale_title">Enable notifications</string>
+    <string name="action_allow">Allow</string>
+    <string name="action_not_now">Not now</string>
+
+    <string name="home_city_set">%1$s set as home city</string>
+    <string name="cities_edit_or_delete">Edit or delete %1$s?</string>
+    <string name="format_coords" translatable="false">%1$.4f, %2$.4f</string>
+
+    <string name="cd_share">Share weather</string>
+    <string name="cd_open_in_maps">Open location in maps</string>
+    <string name="home_page_of">City %1$d of %2$d</string>
+
+    <string name="about_features_title">Implemented features</string>
+    <string name="about_features">Scalable RecyclerView with a custom Adapter/ViewHolder, CardView and ViewPager2 layouts, custom Material components, an extensible animation mechanism with an animated splash, lifecycle state preservation, implicit and explicit Intents with extras, an options menu with dialogs and a settings screen, static and dynamic Fragments with a navigation drawer and backstack, and a runtime permission flow.</string>
+    <string name="about_open_source">Open Open-Meteo</string>
+    <string name="url_open_meteo" translatable="false">https://open-meteo.com</string>
+
+    <string name="home_no_cities">No cities saved yet.</string>
+
+    <string name="action_search">Search</string>
+    <string name="action_manual_entry">Enter manually</string>
+    <string name="search_no_results">No cities found for “%1$s”</string>
+
+    <string name="format_temperature_f" translatable="false">%1$.1f °F</string>
+    <string name="format_wind_mph" translatable="false">%1$.1f mph</string>
+
+</resources>
